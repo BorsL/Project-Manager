@@ -1,0 +1,12 @@
+pre-commit:
+  parallel: true
+  commands:
+    biome:
+      run: cd projects-manager && pnpm check
+    typecheck:
+      run: cd projects-manager && pnpm typecheck
+
+pre-push:
+  commands:
+    verify:
+      run: cd projects-manager && pnpm verify

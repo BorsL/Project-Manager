@@ -1,0 +1,59 @@
+name: Projects Manager CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  verify:
+    name: Verify Expo App
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: projects-manager
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.32.1
+          run_install: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: projects-manager/.node-version
+          cache: pnpm
+          cache-dependency-path: projects-manager/pnpm-lock.yaml
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Biome Check
+        run: pnpm check
+
+      - name: TypeScript Check
+        run: pnpm typecheck
+
+      - name: Expo Doctor
+        run: pnpm doctor
+
+      - name: Job Summary
+        if: always()
+        run: |
+          {
+            echo "## Projects Manager CI"
+            echo ""
+            echo "- Biome check"
+            echo "- TypeScript check"
+            echo "- Expo Doctor"
+            echo ""
+            echo "EAS builds are intentionally not triggered from this workflow."
+          } >> "$GITHUB_STEP_SUMMARY"
