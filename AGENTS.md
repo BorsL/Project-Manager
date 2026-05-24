@@ -2,6 +2,8 @@
 
 Before making product, design, architecture, or implementation decisions for this workspace, read:
 
-- [USM Mobile Context](context/usm-mobile/README.md)
+- [Projects Manager Context](context/projects-manager/README.md)
 
-This workspace is currently in exploration mode. Do not scaffold an Expo app, install dependencies, or write implementation code unless the user explicitly asks for that in a later turn.
+The Expo app lives in `projects-manager`. Keep the repo public-safe: do not commit
+secrets, real user data, EAS tokens, native signing material, or local Convex
+deployment files.

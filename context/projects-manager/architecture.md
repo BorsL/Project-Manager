@@ -16,25 +16,29 @@
 ## Project Shape
 
 ```text
-usm-mobile/
+projects-manager/
   README.md
   src/
     app/
       _layout.tsx
       index.tsx
+      (tabs)/
+        _layout.tsx
+        todos/
+          index.tsx
+        projects/
+          index.tsx
+        roadmap/
+          index.tsx
       todos/
-        index.tsx
         new.tsx
       projects/
-        index.tsx
         new.tsx
-        [projectId].tsx
         [projectId]/
+          index.tsx
           edit.tsx
       tasks/
         [taskId].tsx
-      roadmap/
-        index.tsx
     pages/
     widgets/
     features/
@@ -42,12 +46,9 @@ usm-mobile/
     shared/
       ui/
       theme/
-      api/
-      config/
-      icons/
       lib/
-      types/
   assets/
+  convex/
   app.json
   package.json
   pnpm-lock.yaml
@@ -75,7 +76,7 @@ Layer responsibilities:
 Keep route files thin. Example:
 
 ```text
-src/app/projects/[projectId].tsx
+src/app/projects/[projectId]/index.tsx
   imports -> src/pages/project-board/ui/project-board-screen.tsx
 ```
 
@@ -100,11 +101,11 @@ src/entities/project/ui/project-card.tsx
 src/entities/roadmap/ui/roadmap-item.tsx
 ```
 
-## USM Design System Layer
+## Projects Manager Design System Layer
 
-The USM design system is the app-owned UI foundation, not a third-party library.
+The Projects Manager design system is the app-owned UI foundation, not a third-party library.
 
-Use React Native Reusables as copy-owned component seeds, NativeWind as styling, and expose USM-owned components from:
+Use React Native Reusables as copy-owned component seeds, NativeWind as styling, and expose app-owned components from:
 
 ```text
 src/shared/ui
@@ -142,7 +143,7 @@ tokens.ts
 
 Rules:
 
-- Feature code imports USM components, not raw UI kit components.
+- Feature code imports app-owned components, not raw UI kit components.
 - NativeWind utility classes may live inside owned components and layouts.
 - Extract repeated UI patterns into `shared/ui`.
 - Domain UI belongs in `entities/*/ui` once it knows about product concepts.

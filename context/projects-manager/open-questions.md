@@ -4,7 +4,6 @@ These are useful to decide soon, but they do not block the MVP scaffold.
 
 ## Product
 
-- What does `USM` stand for?
 - Is the app personal-only for the foreseeable future, or should team/workspace concepts remain easy later?
 - Should todos be promotable into project tasks in MVP?
 - Can Roadmap items point to projects directly, or only to tasks/notes?

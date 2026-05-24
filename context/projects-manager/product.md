@@ -2,7 +2,7 @@
 
 ## Product Model
 
-USM is a personal task and project manager with three main surfaces:
+Projects Manager is a personal task and project manager with three main surfaces:
 
 ```text
 Todos
