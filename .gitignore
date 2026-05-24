@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Expo and native generated output
+.expo/
+*/.expo/
+dist/
+web-build/
+expo-env.d.ts
+ios/
+android/
+*.tsbuildinfo
+
+# Local environment and secrets
+.env
+.env.local
+.env.*.local
+!.env.example
+*.pem
+*.key
+*.p8
+*.p12
+*.jks
+*.mobileprovision
+
+# Logs and system files
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+pnpm-debug.log*
+.DS_Store
+
+# Convex deployment selection is local-only.
+*.env.local
